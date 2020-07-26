@@ -60,7 +60,7 @@ CONSOL.LOG("AA");
     <div class="slides">
       <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF_BLUE', 'Andy_CF_BLUE.usdz', 'Andy_CF_BLUE.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BLUE.jpeg');">
 
-      </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_CF_BROWN', 'Andy_CF_BROWN.usdz', 'Andy_CF_BROWN.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BROWN.jpeg');">
+      </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_CF_BROWN', 'Andy_CF_BROWN.usdz#callToAction=More%20Info&checkoutTitle=Chair&checkoutSubtitle=Tap%20to%20get%20more%20info20%about%20this%20chair&price=$100', 'Andy_CF_BROWN.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BROWN.jpeg');">
       
       </button><button class="slide" id="third" onclick="switchSrc(this, 'Andy_CF_CREAM', 'Andy_CF_CREAM.usdz', 'Andy_CF_CREAM.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_CREAM.jpeg');">
       
@@ -87,7 +87,7 @@ CONSOL.LOG("AA");
   const modelViewer = document.querySelector("model-viewer");
   window.switchSrc = (element, name, ios, android) => {
     const base = "polukresla/Andy_CF/" + name;
-    const silka = "polukresla/Andy_CF/" + ios + "#callToAction=More%20Info&checkoutTitle=Chair&checkoutSubtitle=Tap%20to%20get%20more%20info20%about%20this%20chair&price=$100";
+    const silka = "polukresla/Andy_CF/" + ios;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
