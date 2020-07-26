@@ -43,12 +43,12 @@ if(isMobile.iOS()){
         })
     </script>-->
   
-   <img src="resources/logo.svg" id="logo">
+   <img src="resources/modernist.png" id="logo">
    <div id="text">
        <!--<button id="next" class="opennext"><img src="resources/next.svg"></button>-->
        <strong>Выберите цвет основы</strong>
    </div>
-    <model-viewer src="polukresla/Andy_CF.glb" shadow-intensity="1" ar ar-scale="fixed" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
+    <model-viewer src="polukresla/Andy_CF/Andy_CF_BLUE.glb" shadow-intensity="1" ar ar-scale="fixed" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
 <button slot="ar-button" id="ar-button">ОКРЫТЬ ПРОСМОТР AR
   </button>
   
@@ -57,17 +57,25 @@ if(isMobile.iOS()){
   </div>
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF', 'blue.usdz', 'blue.glb')" style="background-image: url('polukresla/1.jpeg');">
+      <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF_BLUE', 'Andy_CF_BLUE.usdz', 'Andy_CF_BLUE.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BLUE.jpeg');">
 
-      </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_Wood_NF', 'green.usdz', 'green.glb')" style="background-image: url('polukresla/2.jpeg');">
+      </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_CF_BROWN', 'Andy_CF_BROWN.usdz', 'Andy_CF_BROWN.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BROWN.jpeg');">
       
-      </button><button class="slide" id="third" onclick="switchSrc(this, 'Mone_CF', 'pink.usdz', 'pink.glb')" style="background-image: url('polukresla/3.jpeg');">
+      </button><button class="slide" id="third" onclick="switchSrc(this, 'Andy_CF_CREAM', 'Andy_CF_CREAM.usdz', 'Andy_CF_CREAM.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_CREAM.jpeg');">
       
-      </button><button class="slide" id="forth" onclick="switchSrc(this, 'Mone_Wood_NF', 'purp.usdz', 'purp.glb')" style="background-image: url('polukresla/4.jpeg');">    
+      </button><button class="slide" id="forth" onclick="switchSrc(this, 'Andy_CF_GREEN', 'Andy_CF_GREEN.usdz', 'Andy_CF_GREEN.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_GREEN.jpeg');">    
     </button>
-    <button class="slide" id="fith" onclick="switchSrc(this, 'Mone_Wood_NF_1', 'red.usdz', 'red.glb')" style="background-image: url('polukresla/5.jpeg');">    
+    <button class="slide" id="fith" onclick="switchSrc(this, 'Andy_CF_IZUMRUD', 'Andy_CF_IZUMRUD.usdz', 'Andy_CF_IZUMRUD.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_IZUMRUD.jpeg');">    
     </button>
-    <button class="slide" id="sixth" onclick="switchSrc(this, 'Pollok_CF', 'yellow.usdz', 'yellow.glb')" style="background-image: url('polukresla/6.jpeg');">    
+    <button class="slide" id="sixth" onclick="switchSrc(this, 'Andy_CF_NEON', 'Andy_CF_NEON.usdz', 'Andy_CF_NEON.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_NEON.jpeg');">    
+    </button>
+    <button class="slide" id="sixth" onclick="switchSrc(this, 'Andy_CF_PINK', 'Andy_CF_PINK.usdz', 'Andy_CF_PINK.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_PINK.jpeg');">    
+    </button>
+    <button class="slide" id="sixth" onclick="switchSrc(this, 'Andy_CF_PURP', 'Andy_CF_PURP.usdz', 'Andy_CF_PURP.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_PURP.jpeg');">    
+    </button>
+    <button class="slide" id="sixth" onclick="switchSrc(this, 'Andy_CF_RED', 'Andy_CF_RED.usdz', 'Andy_CF_RED.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_RED.jpeg');"> 
+    </button>
+    <button class="slide" id="sixth" onclick="switchSrc(this, 'Andy_CF_YELLOW', 'Andy_CF_YELLOW.usdz', 'Andy_CF_YELLOW.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_YELLOW.jpeg');">    
     </button>
     </div>
   </div>
@@ -77,8 +85,8 @@ if(isMobile.iOS()){
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
   window.switchSrc = (element, name, ios, android) => {
-    const base = "usdz/" + name;
-    const silka = "usdz/" + ios +"#applePayButtonType=plain&checkoutTitle=This%20Chair&checkoutSubtitle=Brilliant%20Chair%20To%20Buy&price=$35.50";
+    const base = "polukresla/Andy_CF/" + name;
+    const silka = "polukresla/Andy_CF/" + ios +"#callToAction=More%20Info&checkoutTitle=Chair&checkoutSubtitle=Tap%20to%20get%20more%20info20%about%20this%20chair&price=$100";
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
@@ -95,7 +103,14 @@ if(isMobile.iOS()){
   });
 </script>
 <script src="js/choice.js"></script>
-
+<script type="application/javascript">
+    const linkElement = document.getElementById("next");
+    linkElement.addEventListener("message", function (event) {
+        if(event.data == "_apple_ar_quicklook_button_tapped") {
+            window.open("https://www.modernist.su/cf/tproduct/174336961-720986339878-stul-matiss-wood-cf");
+        }
+    })
+</script>
 <style>
   /* This keeps child nodes hidden while the element loads */
     :not(:defined) > * {
@@ -139,7 +154,7 @@ if(isMobile.iOS()){
     color: #2f3640;
     font-size: 25px;
     top: 4%;
-    width: 150px;
+    width: 200px;
 }
   #ar-button {
     background-image: url(resources/icon.png);
