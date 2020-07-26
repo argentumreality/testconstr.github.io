@@ -33,7 +33,7 @@ if(isMobile.iOS()){
 </script>-->
 </head>
 <body>
- <script>
+ <!--<script>
         $(document).ready(function(){
             $("div#text").click(function(e) {
                 e.preventDefault();
@@ -41,7 +41,7 @@ if(isMobile.iOS()){
                 $("#next").attr("src", $(this).attr("href"));
             })
         })
-    </script>
+    </script>-->
   
    <img src="resources/logo.svg" id="logo">
    <div id="text">
@@ -55,7 +55,6 @@ if(isMobile.iOS()){
   <div id="ar-prompt">
     <img src="hand.png">
   </div>
-<a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
   <div class="slider">
     <div class="slides">
       <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF', 'blue.usdz', 'blue.glb')" style="background-image: url('polukresla/1.jpeg');">
@@ -72,6 +71,7 @@ if(isMobile.iOS()){
     </button>
     </div>
   </div>
+  <a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
 </model-viewer>
 
 <script type="module">
@@ -94,7 +94,7 @@ if(isMobile.iOS()){
     ev.preventDefault();
   });
 </script>
-<script src="js/choice.js"></script>
+<script src="choice.js"></script>
 
 <style>
   /* This keeps child nodes hidden while the element loads */
@@ -141,36 +141,13 @@ if(isMobile.iOS()){
     top: 4%;
     width: 150px;
 }
-    #next{
-        background-image: url(resources/icon.png);
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: 22px 50%;
-    background-color: #fff;
-    position: fixed;
-    left: 50%;
-      bottom: 15%;
-    transform: translateX(-50%);
-    bottom: 132px;
-    padding: 0px 16px 0px 40px;
-    font-family: Roboto Regular, Helvetica Neue, sans-serif;
-    font-size: 24px;
-    color:#4285f4;
-    height: 76px;
-      width: 390px;
-    line-height: 70px;
-    outline-width: px;
-    border-radius: 38px;
-    border: 1px solid #DADCE0;
-        display:inline-flex;
-    }
   #ar-button {
     background-image: url(resources/icon.png);
     background-repeat: no-repeat;
     background-size: 40px 40px;
     background-position: 22px 50%;
     background-color: #fff;
-    position: fixed;
+    position: absolute;
     left: 50%;
       bottom: 15%;
     transform: translateX(-50%);
@@ -185,6 +162,31 @@ if(isMobile.iOS()){
     border-radius: 38px;
     border: 1px solid #DADCE0;
   }
+    #next{
+        background-image: url(resources/icon.png);
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: 20px 50%;
+    background-color: #fff;
+    position: fixed;
+    left: 50%;
+      bottom: 15%;
+    transform: translateX(-50%);
+    bottom: 132px;
+    padding: 0px 16px 2px 44px;
+    font-family: Roboto medium, Helvetica Neue, sans-serif;
+    font-size: 24px;
+        text-align: center;
+        text-decoration-line: none;
+    color:brown;
+    height: 76px;
+      width: 390px;
+    line-height: 70px;
+    outline-width: px;
+    border-radius: 38px;
+    border: 1px solid #DADCE0;
+        display:;
+    }
 
   #ar-button:active {
     background-color: #E8EAED;
