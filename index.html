@@ -86,7 +86,7 @@ CONSOL.LOG("AA");
   const modelViewer = document.querySelector("model-viewer");
   window.switchSrc = (element, name, ios, android) => {
     const base = "polukresla/Andy_CF/" + name;
-    const silka = "polukresla/Andy_CF/" + ios + "#callToAction=More%20Info&checkoutTitle=Chair&checkoutSubtitle=Tap%20to%20get%20more%20info20%about%20this%20chair&price=$100";
+    const silka = "polukresla/Andy_CF/" + ios;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
