@@ -52,7 +52,7 @@ CONSOL.LOG("AA");
     <model-viewer src="polukresla/Andy_CF/Andy_CF_BLUE.glb" shadow-intensity="1" ar ar-scale="fixed" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
 <button slot="ar-button" id="ar-button">ОКРЫТЬ ПРОСМОТР AR
   </button>
-  
+  #callToAction=More%20Info&checkoutTitle=Chair&checkoutSubtitle=Tap%20to%20get%20more%20info20%about%20this%20chair&price=$100'
   <div id="ar-prompt">
     <img src="resources/hand.png">
   </div>
@@ -60,7 +60,7 @@ CONSOL.LOG("AA");
     <div class="slides">
       <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF_BLUE', 'Andy_CF_BLUE.usdz', 'Andy_CF_BLUE.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BLUE.jpeg');">
 
-      </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_CF_BROWN', 'Andy_CF_BROWN.usdz#callToAction=More%20Info&checkoutTitle=Chair&checkoutSubtitle=Tap%20to%20get%20more%20info20%about%20this%20chair&price=$100', 'Andy_CF_BROWN.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BROWN.jpeg');">
+      </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_CF_BROWN', 'Andy_CF_BROWN.usdz', 'Andy_CF_BROWN.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_BROWN.jpeg');">
       
       </button><button class="slide" id="third" onclick="switchSrc(this, 'Andy_CF_CREAM', 'Andy_CF_CREAM.usdz', 'Andy_CF_CREAM.glb')" style="background-image: url('polukresla/Andy_CF/Andy_CF_CREAM.jpeg');">
       
@@ -80,7 +80,7 @@ CONSOL.LOG("AA");
     </button>
     </div>
   </div>
-  <a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
+  <a rel="ar" id="ar-link" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
 </model-viewer>
 
 <script type="module">
@@ -93,7 +93,7 @@ CONSOL.LOG("AA");
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
-      document.querySelector('#next').onclick = function () {
+      document.querySelector('#ar-link').onclick = function () {
               window.open(silka);
             };
   };
@@ -105,7 +105,7 @@ CONSOL.LOG("AA");
 </script>
 <script src="js/choice.js"></script>
 <script type="application/javascript">
-    const linkElement = document.getElementById("next");
+    const linkElement = document.getElementById("ar-link");
     linkElement.addEventListener("message", function (event) {
         if(event.data == "_apple_ar_quicklook_button_tapped") {
             window.open("https://www.modernist.su/cf/tproduct/174336961-720986339878-stul-matiss-wood-cf");
@@ -178,7 +178,7 @@ CONSOL.LOG("AA");
     border-radius: 38px;
     border: 1px solid #DADCE0;
   }
-    #next{
+    #ar-link{
         background-image: url(resources/icon.png);
     background-repeat: no-repeat;
     background-size: 40px 40px;
