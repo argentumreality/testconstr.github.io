@@ -73,8 +73,8 @@ if(!isMobile.iOS()){
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
   window.switchSrc = (element, name, ios, android) => {
-    const base = "../usdz/" + name;
-    const silka = "../usdz/" + ios;
+    const base = "usdz/" + name;
+    const silka = "usdz/" + ios;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
