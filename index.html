@@ -34,12 +34,12 @@
     }
 };
 /* if the device is not ios hide the download button */
-if(isMobile.iOS()){
-       $('.dios').css("visibility", "visible");
+if(!isMobile.iOS()){
+       $("img#dios").css("visibility", "hidden");
 };
 </script>
-  <a rel="ar" class="dios" id="next" href="">
-          <img class="dios" src="resources/AR.svg"></a>
+  <a rel="ar" id="next" href="">
+          <img id="dios" src="resources/AR.svg"></a>
    <img src="resources/logo.svg" id="logo">
    <div id="text">
        <!--<button id="next" class="opennext"><img src="resources/next.svg"></button>-->
