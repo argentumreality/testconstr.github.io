@@ -42,21 +42,21 @@
     </button>
     </div>
   </div>
-  <a rel="ar" id="ar-link" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
+  <a rel="ar" id="ar-link">ОТКРЫТЬ ПРОСМОТР AR</a>
 </model-viewer>
 
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
   window.switchSrc = (element, name, ios, android) => {
     const base = "polukresla/Andy_CF/" + name;
-    const silka = "polukresla/Andy_CF/" + ios + "#applePayButtonType=buy&checkoutTitle=Biplane%20Toy&checkoutSubtitle=Rustic%20finish%20with%20rotating%20propeller&price=$15";
+    const silka = "polukresla/Andy_CF/" + ios;
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
       document.querySelector('#ar-link').onclick = function () {
-              window.open(silka);
+              window.location.replace(silka + "#applePayButtonType=buy&checkoutTitle=Biplane%20Toy&checkoutSubtitle=Rustic%20finish%20with%20rotating%20propeller&price=$15");
             };
   };
 
