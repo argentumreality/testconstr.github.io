@@ -6,9 +6,34 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <script src="jquery-min-1-10-2.js"></script>
+    <!--<script>
+        var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+/* if the device is not ios hide the download button */
+if(isMobile.iOS()){
+    alert('ios version');
+       $(".hide").css("visibility", "visible");
+};
+        if(isMobile.Android){
+            alert('android version');
+            $(".hide").css("visibility", "hidden");
+        };
+</script>-->
 </head>
 <body>
-<script>
+ <script>
         $(document).ready(function(){
             $("div#text").click(function(e) {
                 e.preventDefault();
@@ -17,19 +42,20 @@
             })
         })
     </script>
-    <button slot="ar-button" id="ar-button">ОКРЫТЬ ПРОСМОТР AR
-  </button>
-  <a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
+  
    <img src="resources/logo.svg" id="logo">
    <div id="text">
+       <!--<button id="next" class="opennext"><img src="resources/next.svg"></button>-->
        <strong>Выберите цвет основы</strong>
    </div>
     <model-viewer src="polukresla/Andy_CF.glb" shadow-intensity="1" ar ar-scale="fixed" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
-
+<button slot="ar-button" id="ar-button">ОКРЫТЬ ПРОСМОТР AR
+  </button>
+  
   <div id="ar-prompt">
     <img src="hand.png">
   </div>
-
+<a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
   <div class="slider">
     <div class="slides">
       <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF', 'blue.usdz', 'blue.glb')" style="background-image: url('polukresla/1.jpeg');">
@@ -90,8 +116,8 @@
   model-viewer {
       width: 100%;
       display: flex;
-      position: fixed;
-      height: 70%;
+      position: absolute;
+      height: 80%;
       bottom: 0%;
     background-color: white;
     --poster-color: white;
@@ -123,7 +149,7 @@
     background-color: #fff;
     position: fixed;
     left: 50%;
-      top: 15%;
+      bottom: 15%;
     transform: translateX(-50%);
     bottom: 132px;
     padding: 0px 16px 0px 40px;
@@ -136,6 +162,7 @@
     outline-width: px;
     border-radius: 38px;
     border: 1px solid #DADCE0;
+        display:inline-flex;
     }
   #ar-button {
     background-image: url(resources/icon.png);
@@ -145,7 +172,7 @@
     background-color: #fff;
     position: fixed;
     left: 50%;
-      top: 15%;
+      bottom: 15%;
     transform: translateX(-50%);
     bottom: 132px;
     padding: 0px 16px 0px 40px;
