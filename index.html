@@ -6,10 +6,9 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <script src="jquery-min-1-10-2.js"></script>
-    
 </head>
 <body>
- <script>
+<script>
         $(document).ready(function(){
             $("div#text").click(function(e) {
                 e.preventDefault();
@@ -18,39 +17,17 @@
             })
         })
     </script>
-    <script>
-        var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-};
-/* if the device is not ios hide the download button */
-if(!isMobile.iOS()){
-       $("img#dios").css("visibility", "hidden");
-};
-</script>
-  <a rel="ar" id="next" href="">
-          <img id="dios" src="resources/AR.svg"></a>
+  <button rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</button>
    <img src="resources/logo.svg" id="logo">
    <div id="text">
-       <!--<button id="next" class="opennext"><img src="resources/next.svg"></button>-->
        <strong>Выберите цвет основы</strong>
    </div>
-    <model-viewer src="polukresla/Andy_CF.glb" shadow-intensity="1" ar ar-scale="fixed" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
-<button slot="ar-button" id="ar-button">
-    View in your space
+<button slot="ar-button" id="ar-button">ОКРЫТЬ ПРОСМОТР AR
   </button>
+    <model-viewer src="polukresla/Andy_CF.glb" shadow-intensity="1" ar ar-scale="fixed" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
+
   <div id="ar-prompt">
-    <img src="../assets/hand.png">
+    <img src="hand.png">
   </div>
 
   <div class="slider">
@@ -114,17 +91,11 @@ if(!isMobile.iOS()){
       width: 100%;
       display: flex;
       position: fixed;
-      height: 80%;
+      height: 70%;
       bottom: 0%;
     background-color: white;
     --poster-color: white;
   }
-    #next{
-        display: block;
-        position: fixed;
-        top: 15%;
-        visibility: visible;
-    }
     
     
     #text {
@@ -144,19 +115,42 @@ if(!isMobile.iOS()){
     top: 4%;
     width: 150px;
 }
+    #next{
+        background-image: url(resources/icon.png);
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: 22px 50%;
+    background-color: #fff;
+    position: fixed;
+    left: 50%;
+      top: 15%;
+    transform: translateX(-50%);
+    bottom: 132px;
+    padding: 0px 16px 0px 40px;
+    font-family: Roboto Regular, Helvetica Neue, sans-serif;
+    font-size: 24px;
+    color:#4285f4;
+    height: 76px;
+      width: 390px;
+    line-height: 70px;
+    outline-width: px;
+    border-radius: 38px;
+    border: 1px solid #DADCE0;
+    }
   #ar-button {
     background-image: url(resources/icon.png);
     background-repeat: no-repeat;
     background-size: 40px 40px;
     background-position: 22px 50%;
     background-color: #fff;
-    position: absolute;
+    position: fixed;
     left: 50%;
+      top: 15%;
     transform: translateX(-50%);
     bottom: 132px;
     padding: 0px 16px 0px 40px;
     font-family: Roboto Regular, Helvetica Neue, sans-serif;
-    font-size: 28px;
+    font-size: 22px;
     color:#4285f4;
     height: 76px;
       width: 390px;
@@ -186,7 +180,6 @@ if(!isMobile.iOS()){
     from { transform: translateX(100px); }
     to   { transform: translateX(-100px); }
   }
-
   model-viewer > #ar-prompt {
     position: absolute;
     left: 100%;
