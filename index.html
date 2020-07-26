@@ -57,7 +57,7 @@ if(isMobile.iOS()){
   </div>
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF', 'blue.usdz', 'blue.glb')" style="background-image: url('polukresla/1.jpeg');">
+      <button class="slide selected" id="first" onclick="switchSrc(this, 'Andy_CF', ''blue.usdz#applePayButtonType=plain&checkoutTitle=This%20Chair&checkoutSubtitle=Brilliant%20Chair%20To%20Buy&price=$35.50'', 'blue.glb')" style="background-image: url('polukresla/1.jpeg');">
 
       </button><button class="slide" id="second" onclick="switchSrc(this, 'Andy_Wood_NF', 'green.usdz', 'green.glb')" style="background-image: url('polukresla/2.jpeg');">
       
@@ -71,7 +71,7 @@ if(isMobile.iOS()){
     </button>
     </div>
   </div>
-  <a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
+  <a rel="ar" class="next" id="ar-link" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
 </model-viewer>
 
 <script type="module">
@@ -85,7 +85,7 @@ if(isMobile.iOS()){
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
       document.querySelector('#next').onclick = function () {
-              window.open(silka);
+              location.replace(silka);
             };
   };
 
@@ -162,7 +162,7 @@ if(isMobile.iOS()){
     border-radius: 38px;
     border: 1px solid #DADCE0;
   }
-    #next{
+    .next{
         background-image: url(resources/icon.png);
     background-repeat: no-repeat;
     background-size: 40px 40px;
