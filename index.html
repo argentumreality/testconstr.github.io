@@ -49,7 +49,7 @@
   const modelViewer = document.querySelector("model-viewer");
   window.switchSrc = (element, name, ios, android) => {
     const base = "polukresla/Andy_CF/" + name;
-    const silka = "polukresla/Andy_CF/" + ios +"#applePayButtonType=plain";
+    const silka = "polukresla/Andy_CF/" + ios + "#applePayButtonType=buy&checkoutTitle=Biplane%20Toy&checkoutSubtitle=Rustic%20finish%20with%20rotating%20propeller&price=$15";
     modelViewer.src = base + '.glb';
     modelViewer.poster = base + '.png';
     const slides = document.querySelectorAll(".slide");
