@@ -71,7 +71,7 @@ if(isMobile.iOS()){
     </button>
     </div>
   </div>
-  <a rel="ar" id="ar-link" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
+  <a rel="ar" id="next" href="">ОТКРЫТЬ ПРОСМОТР AR</a>
 </model-viewer>
 
 <script type="module">
@@ -84,8 +84,8 @@ if(isMobile.iOS()){
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
-      document.querySelector('#ar-link').onclick = function () {
-              window.location.replace(silka);
+      document.querySelector('#next').onclick = function () {
+              window.open(silka);
             };
   };
 
@@ -162,7 +162,7 @@ if(isMobile.iOS()){
     border-radius: 38px;
     border: 1px solid #DADCE0;
   }
-    #ar-link{
+    #next{
         background-image: url(resources/icon.png);
     background-repeat: no-repeat;
     background-size: 40px 40px;
