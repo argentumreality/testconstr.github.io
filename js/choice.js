@@ -19,5 +19,5 @@ var isMobile = {
     }
 };
 if(!isMobile.iOS()){
-    //document.getElementById('ar-link').style.display = 'none';
+    document.getElementById('next').style.display = 'none';
 };
