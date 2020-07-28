@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script src="jquery-min-1-10-2.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div#text").click(function(e) {
+                e.preventDefault();
+                
+                $("#next").attr("src", $(this).attr("href"));
+            })
+        })
+    </script>
+</head>
+<body>
+   <img src="resources/modernist.png" id="logo">
+   <div id="text">
+       <button id="next" class="opennext"><img id="arrow" src="resources/next.svg"></button>
+       <strong>Выберите цвет ножек</strong>
+   </div>
+    <model-viewer src="" shadow-intensity="1" camera-controls camera-orbit="45deg 55deg 2.5m" alt="A 3D model carousel">
+
+  <div id="ar-prompt">
+    <img src="../assets/hand.png">
+  </div>
+
+  <div class="slider">
+    <div class="slides">
+      <button class="slide selected" id="first" onclick="switchSrc(this, 'Legs1B', 'Dali_black.html')" style="background-image: url('Legs/Dali/Legs1B.jpeg');">
+
+        </button><button class="slide" id="second" onclick="switchSrc(this, 'Legs1G', 'Dali_gold.html')" style="background-image: url('Legs/Dali/Legs1G.jpeg');"></button>
+    </div>
+  </div>
+</model-viewer>
+
+<script type="module">
+  const modelViewer = document.querySelector("model-viewer");
+  window.switchSrc = (element, name, hhh) => {
+    const base = "Legs/Dali/" + name;
+    const silka = hhh;
+    modelViewer.src = base + '.glb';
+    modelViewer.poster = base + '.png';
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((element) => {element.classList.remove("selected");});
+    element.classList.add("selected");
+      document.querySelector('#next').onclick = function () {
+              window.location.replace(silka);
+            };
+  };
+
+  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
+  });
+</script>
+<script src="js/choice.js"></script>
+
+<style>
+  /* This keeps child nodes hidden while the element loads */
+    :not(:defined) > * {
+    display: none;
+  }
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+  model-viewer {
+      width: 100%;
+      display: flex;
+      position: fixed;
+      height: 80%;
+      bottom: 0;
+    background-color: white;
+    --poster-color: white;
+  }
+    #next{
+        display: block;
+        outline: none;
+        color: transparent; background-color: transparent;
+    position: fixed;
+        width: 60px;
+        height: 40px;
+                right: 11%;
+    top: 11.8%;
+    }
+    #arrow {
+        width: 60%;
+        height: 60%;
+    }
+    #text {
+        display: block;
+    position: fixed;
+    color: #2f3640;
+    font-size: 28px;
+    top: 12%;
+
+    }
+    
+    #logo {
+    display: block;
+    position: fixed;
+    color: #2f3640;
+    font-size: 20px;
+    top: 4%;
+    width: 150px;
+}
+  #ar-button {
+    background-image: url(../assets/ic_view_in_ar_new_googblue_48dp.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 12px 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 132px;
+    padding: 0px 16px 0px 40px;
+    font-family: Roboto Regular, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    color:#4285f4;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    border: 1px solid #DADCE0;
+  }
+
+  #ar-button:active {
+    background-color: #E8EAED;
+  }
+
+  #ar-button:focus {
+    outline: none;
+  }
+
+  #ar-button:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+  @keyframes circle {
+    from { transform: translateX(-50%) rotate(0deg) translateX(50px) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg) translateX(50px) rotate(-360deg); }
+  }
+
+  @keyframes elongate {
+    from { transform: translateX(100px); }
+    to   { transform: translateX(-100px); }
+  }
+
+  model-viewer > #ar-prompt {
+    position: absolute;
+    left: 100%;
+    bottom: 175px;
+    animation: elongate 2s infinite ease-in-out alternate;
+    display: none;
+  }
+
+  model-viewer[ar-status="session-started"] > #ar-prompt {
+    display: block;
+  }
+
+  model-viewer > #ar-prompt > img {
+    animation: circle 4s linear infinite;
+  }
+
+  .slider {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    bottom: 16px;
+  }
+
+  .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+  }
+
+  .slide.selected {
+    border: 2px solid #4285f4;
+  }
+
+  .slide:focus {
+    outline: none;
+  }
+
+  .slide:focus-visible {
+    outline: 1px solid #4285f4;
+  }
+
+</style>
+</body>
+</html>
